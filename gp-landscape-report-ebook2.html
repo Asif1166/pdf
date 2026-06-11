@@ -206,6 +206,9 @@ body {
   border-bottom: 1px solid var(--grey-light);
 }
 .producer-grid {
+  display: block;
+}
+.producer-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
@@ -1039,13 +1042,19 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
   p + ul { page-break-before: avoid; break-before: avoid; }
   ul { page-break-inside: avoid; break-inside: avoid; }
   .producer-grid { display: block; }
-  .producer-grid::after { content: ""; display: table; clear: both; }
-  .producer { float: left; width: 48%; margin-bottom: 16px; page-break-inside: avoid; break-inside: avoid; }
-  .producer:nth-child(2n) { float: right; }
-  .producer:nth-child(2n+1) { clear: both; }
-  .producers { padding-top: 32px; padding-bottom: 16px; }
-  .producer-name { margin-bottom: 2px; }
-  .producer-creds { margin-bottom: 6px; }
+  .producer-row { display: block; width: 100%; margin-bottom: 8px; page-break-inside: avoid; break-inside: avoid; }
+  .producer-row::after { content: ""; display: table; clear: both; }
+  .producer { float: left; width: 48%; margin-bottom: 0; }
+  .producer:nth-child(2) { float: right; }
+  .producers { padding-top: 16px; padding-bottom: 16px; }
+  .producer-name { font-size: 10.5pt; margin-bottom: 2px; }
+  .producer-creds { font-size: 8pt; margin-bottom: 4px; }
+  .producer p { font-size: 8.5pt; line-height: 1.45; margin-bottom: 8px; }
+  .producers .section-heading { font-size: 20pt; margin: 0 0 16px; }
+  .sector-snapshot-wrapper p { font-size: 11pt; line-height: 1.6; margin-bottom: 16px; }
+  .sector-snapshot-wrapper .stat-callout { margin: 16px 0; padding: 6px 0 6px 18px; gap: 16px; }
+  .sector-snapshot-wrapper .stat-callout-num { font-size: 20pt; }
+  .sector-snapshot-wrapper .stat-callout-desc { font-size: 9.5pt; line-height: 1.4; }
 }
 
 /* --- Paged.js print rules (only applied when the page is loaded with ?print=1
@@ -1154,40 +1163,51 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
   <h2 class="section-heading">Contributors</h2>
   <p style="font-size:10.5pt;color:var(--ink);max-width:640px;margin-bottom:32px;line-height:1.7;">This report was produced by Medius Global with input from a panel of contributing editors. They provided input, critique and review across drafts. Their involvement strengthens the report's relevance but does not imply endorsement of every statement or recommendation in the final document.</p>
   <div class="producer-grid">
-    <div class="producer">
-      <div class="producer-name">Dr Sue Page AM</div>
-      <div class="producer-creds">Contributing editor &bull; Rural GP &bull; AM</div>
-      <p>Sue is a nationally recognised leader in Australian primary care, with over 30 years' experience as a multi-procedural GP across rural, remote and Aboriginal communities, and senior roles in clinical practice, education and administration. She has advised State and Federal Ministers on mental health, drug and alcohol services, medical workforce and health system design, and has chaired or served on boards including the Northern NSW Local Health District and the NSW Clinical Excellence Commission. Her leadership in medical education includes serving as Associate Professor and Director of the North Coast Medical Education Collaborative, and she was appointed a Member of the Order of Australia in 2008 for services to medicine and the community.</p>
+    <div class="producer-row">
+      <div class="producer">
+        <div class="producer-name">Dr Sue Page AM</div>
+        <div class="producer-creds">Contributing editor &bull; Rural GP &bull; AM</div>
+        <p>Sue is a nationally recognised leader in Australian primary care, with over 30 years' experience as a multi-procedural GP across rural, remote and Aboriginal communities, and senior roles in clinical practice, education and administration. She has advised State and Federal Ministers on mental health, drug and alcohol services, medical workforce and health system design, and has chaired or served on boards including the Northern NSW Local Health District and the NSW Clinical Excellence Commission. Her leadership in medical education includes serving as Associate Professor and Director of the North Coast Medical Education Collaborative, and she was appointed a Member of the Order of Australia in 2008 for services to medicine and the community.</p>
+      </div>
+      <div class="producer">
+        <div class="producer-name">Dr Chris Mitchell AM, FAICD</div>
+        <div class="producer-creds">Contributing editor &bull; Rural GP &bull; Past President, RACGP</div>
+        <p>Chris is a rural GP and rural generalist with over 35 years' experience in northern NSW. Past President of the Royal Australian College of General Practitioners. Fellow of the Australian Institute of Company Directors. Past Head of Adoption, Benefits and Change at the National eHealth Transition Authority. Board roles include NPS MedicineWise, Therapeutic Guidelines Ltd, the Rural Doctors Network and North Coast GP Training. Member of the Order of Australia (AM) in 2013 for services to general practice. Rural Doctors Network Rural Medical Service Award 2025.</p>
+      </div>
     </div>
-    <div class="producer">
-      <div class="producer-name">Dr Chris Mitchell AM, FAICD</div>
-      <div class="producer-creds">Contributing editor &bull; Rural GP &bull; Past President, RACGP</div>
-      <p>Chris is a rural GP and rural generalist with over 35 years' experience in northern NSW. Past President of the Royal Australian College of General Practitioners. Fellow of the Australian Institute of Company Directors. Past Head of Adoption, Benefits and Change at the National eHealth Transition Authority. Board roles include NPS MedicineWise, Therapeutic Guidelines Ltd, the Rural Doctors Network and North Coast GP Training. Member of the Order of Australia (AM) in 2013 for services to general practice. Rural Doctors Network Rural Medical Service Award 2025.</p>
+    
+    <div class="producer-row">
+      <div class="producer">
+        <div class="producer-name">Kerron Bromfield</div>
+        <div class="producer-creds">Contributing editor &bull; Health consultant &bull; AGPAL accredited assessor</div>
+        <p>Kerron is a health consultant with over 25 years of operational and executive management experience across healthcare and broader business sectors, with depth in regional and rural health service delivery. Her focus is primary care and urgent care, including the establishment, management and optimisation of general practices and Urgent Care Clinics in regional settings. Her consultancy work covers health and infrastructure planning, feasibility assessments, economic modelling and practice optimisation for communities outside metro catchments. Kerron is an accredited assessor with Australian General Practice Accreditation Limited (AGPAL) and co-author of 'Urgent care in the community: an observational study' (Journal of Health Organization and Management, 2021). She serves as a Board Member and Treasurer for Healthy Ageing Partnerships and Maroochy Neighbourhood Centre.</p>
+      </div>
+      <div class="producer">
+        <div class="producer-name">Dr Bruce Willett</div>
+        <div class="producer-creds">Contributing editor &bull; GP &bull; Former VP, RACGP</div>
+        <p>Bruce is a GP with over 30 years' experience and a former owner of a network of practices in South Brisbane. Former Vice President of the RACGP and recipient of the Rose-Hunt Award. Immediate Past Chair of the RACGP Queensland Faculty. Former Chair of General Practice Supervisors Australia. Specialises in practice quality improvement, medical education and the use of practice data to drive decision-making.</p>
+      </div>
     </div>
-    <div class="producer">
-      <div class="producer-name">Kerron Bromfield</div>
-      <div class="producer-creds">Contributing editor &bull; Health consultant &bull; AGPAL accredited assessor</div>
-      <p>Kerron is a health consultant with over 25 years of operational and executive management experience across healthcare and broader business sectors, with depth in regional and rural health service delivery. Her focus is primary care and urgent care, including the establishment, management and optimisation of general practices and Urgent Care Clinics in regional settings. Her consultancy work covers health and infrastructure planning, feasibility assessments, economic modelling and practice optimisation for communities outside metro catchments. Kerron is an accredited assessor with Australian General Practice Accreditation Limited (AGPAL) and co-author of 'Urgent care in the community: an observational study' (Journal of Health Organization and Management, 2021). She serves as a Board Member and Treasurer for Healthy Ageing Partnerships and Maroochy Neighbourhood Centre.</p>
+
+    <div class="producer-row">
+      <div class="producer">
+        <div class="producer-name">Dr Julian Hooper, PhD</div>
+        <div class="producer-creds">Contributing editor &bull; Diagnostics &bull; Digital health</div>
+        <p>Julian holds a PhD from the University of Hull in miniaturised analytics and pharmaceutical development. He has spent over 15 years working across medical diagnostics, devices, and digital health in Australia. His career sits at the intersection of clinical science and commercial practice, spanning primary health, pathology, and hospital settings and working within quality and accreditation frameworks including ISO 15189, NATA, and RACGP standards. He has collaborated with public health bodies on population screening programs and developed digital health technology serving Australian general practice, bringing technical depth and business leadership to Australia's evolving primary care landscape.</p>
+      </div>
+      <div class="producer">
+        <div class="producer-name">Dr Jared Dart</div>
+        <div class="producer-creds">Contributing editor &bull; GP &bull; Deputy Chair, Brisbane North PHN</div>
+        <p>Jared is a GP and owner of iHealth Centre Indooroopilly, a multidisciplinary primary care practice. He is Deputy Chair of the Brisbane North PHN Board and Chair of its Governance, People and Culture Committee. He holds a PhD in eHealth and Medicine, focused on care integration and service design, a BA in Economics and Government, and is a Fellow of the RACGP and Graduate of the Australian Institute of Company Directors. His work has spanned clinical practice, health system governance, digital health, academia, consulting, and health services research. He was formerly an Associate Professor and program lead at the University of Queensland, has a background in management consulting and NHMRC-funded research, and was previously co-founder and Chief Medical Officer of Welio, a remote care platform.</p>
+      </div>
     </div>
-    <div class="producer">
-      <div class="producer-name">Dr Bruce Willett</div>
-      <div class="producer-creds">Contributing editor &bull; GP &bull; Former VP, RACGP</div>
-      <p>Bruce is a GP with over 30 years' experience and a former owner of a network of practices in South Brisbane. Former Vice President of the RACGP and recipient of the Rose-Hunt Award. Immediate Past Chair of the RACGP Queensland Faculty. Former Chair of General Practice Supervisors Australia. Specialises in practice quality improvement, medical education and the use of practice data to drive decision-making.</p>
-    </div>
-    <div class="producer">
-      <div class="producer-name">Dr Julian Hooper, PhD</div>
-      <div class="producer-creds">Contributing editor &bull; Diagnostics &bull; Digital health</div>
-      <p>Julian holds a PhD from the University of Hull in miniaturised analytics and pharmaceutical development. He has spent over 15 years working across medical diagnostics, devices, and digital health in Australia. His career sits at the intersection of clinical science and commercial practice, spanning primary health, pathology, and hospital settings and working within quality and accreditation frameworks including ISO 15189, NATA, and RACGP standards. He has collaborated with public health bodies on population screening programs and developed digital health technology serving Australian general practice, bringing technical depth and business leadership to Australia's evolving primary care landscape.</p>
-    </div>
-    <div class="producer">
-      <div class="producer-name">Dr Jared Dart</div>
-      <div class="producer-creds">Contributing editor &bull; GP &bull; Deputy Chair, Brisbane North PHN</div>
-      <p>Jared is a GP and owner of iHealth Centre Indooroopilly, a multidisciplinary primary care practice. He is Deputy Chair of the Brisbane North PHN Board and Chair of its Governance, People and Culture Committee. He holds a PhD in eHealth and Medicine, focused on care integration and service design, a BA in Economics and Government, and is a Fellow of the RACGP and Graduate of the Australian Institute of Company Directors. His work has spanned clinical practice, health system governance, digital health, academia, consulting, and health services research. He was formerly an Associate Professor and program lead at the University of Queensland, has a background in management consulting and NHMRC-funded research, and was previously co-founder and Chief Medical Officer of Welio, a remote care platform.</p>
-    </div>
-    <div class="producer">
-      <div class="producer-name">Kate Marie</div>
-      <div class="producer-creds">Managing editor &bull; Principal, Medius Global</div>
-      <p>Kate Marie is principal of Medius Global, working with health operators and sector organisations on business development, growth strategy, go-to-market planning and M&amp;A advisory. Her background spans nursing, senior consulting roles across health NFPs, medical colleges, primary care, digital health and medtech, and 20+ years in Australian and international health communications and business development. She advises on GP practice valuation, stakeholder engagement for PHNs and peak bodies, CRM and sales systems, and market entry for health technology ventures. Current and recent clients include medical colleges, GP corporate operators, medtech providers, government agencies, charities and digital health platforms. She co-authored <em>Fast Living, Slow Ageing</em> with Professor Merlin Thomas (25,000+ copies sold) and co-designed SLOWBot, an AI coaching chatbot for healthy ageing published with Fondazione Bruno Kessler, Italy (ACM Digital Library, 2018).</p>
+
+    <div class="producer-row">
+      <div class="producer">
+        <div class="producer-name">Kate Marie</div>
+        <div class="producer-creds">Managing editor &bull; Principal, Medius Global</div>
+        <p>Kate Marie is principal of Medius Global, working with health operators and sector organisations on business development, growth strategy, go-to-market planning and M&amp;A advisory. Her background spans nursing, senior consulting roles across health NFPs, medical colleges, primary care, digital health and medtech, and 20+ years in Australian and international health communications and business development. She advises on GP practice valuation, stakeholder engagement for PHNs and peak bodies, CRM and sales systems, and market entry for health technology ventures. Current and recent clients include medical colleges, GP corporate operators, medtech providers, government agencies, charities and digital health platforms. She co-authored <em>Fast Living, Slow Ageing</em> with Professor Merlin Thomas (25,000+ copies sold) and co-designed SLOWBot, an AI coaching chatbot for healthy ageing published with Fondazione Bruno Kessler, Italy (ACM Digital Library, 2018).</p>
+      </div>
     </div>
   </div>
 </div>
@@ -1240,13 +1260,10 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
 
 <div class="body-wrap"><div class="content-section">
 
-<div class="exec-summary">
-  <h2>Executive summary</h2>
-  <p>General practice is the largest area of clinical activity in Australia and the primary point of access for most patients. The sector faces workforce contraction, funding constraints and regulatory complexity at the same time as absorbing new investment, policy reform and technology.</p>
-  <p>The GP workforce of 40,375 practitioners is ageing, unevenly distributed and increasingly reliant on international medical graduates. Of these, 80.7% are vocationally registered, 4.0% non-vocationally registered and 15.4% in training. One in three intends to stop practising within five years, with the impact concentrated in regional and remote areas where replacement pipelines are weakest. Financial viability depends on a Medicare fee-for-service model that has been structurally inadequate for over a decade, despite recent measures including the Bulk Billing Practice Incentive Program (BBPIP) introduced in November 2025. These conditions are reshaping ownership structures, business models and workforce planning simultaneously.</p>
-</div>
 
-<h3 id="sector-snapshot" class="numbered">Sector snapshot</h3>
+
+<div class="sector-snapshot-wrapper">
+<h3 id="sector-snapshot" class="numbered" style="page-break-before: always; break-before: always;">Sector snapshot</h3>
 <p><strong>Market size:</strong> Total health expenditure reached $270.5 billion in 2023-24, representing 10.1% of GDP. Unreferred medical services (primarily general practice) accounted for $14.6 billion, with Australian Government funding of $11.5 billion. Primary health care accounted for $89.1 billion, or 33% of total health spending.</p>
 <div class="stat-callout"><div class="stat-callout-num">$270.5bn</div><div class="stat-callout-desc">total health expenditure 2023-24, 10.1% of GDP</div></div>
 <div class="stat-callout"><div class="stat-callout-num">$89.1bn</div><div class="stat-callout-desc">primary health care, 33% of total health spending</div></div>
@@ -1256,6 +1273,8 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
 <p><strong>Workforce:</strong> The GP workforce comprises 40,375 practitioners, of whom 80.7% are vocationally registered, 4.0% are non-vocationally registered, and 15.4% are in training. One in three practising GPs intends to stop practising within five years, with the impact concentrated in regional and remote areas where replacement pipelines are weakest.</p>
 <p><strong>Practice ownership:</strong> Corporate and group operators now control approximately 23% of general practice sites nationally, across 234 identified operators managing 1,706 sites. Consolidation continues, driven by practice owners exiting at or near retirement, rising compliance burden and the capital requirements of modern practice infrastructure. Average practice size has grown as smaller practices merge or are acquired. See Section 13.2 'Who owns the practice is changing' in this report for more information.</p>
 <div class="stat-callout"><div class="stat-callout-num">~23%</div><div class="stat-callout-desc">of practice sites under corporate/group ownership</div></div>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
 <h3>Key trends and challenges</h3>
 <p><strong>Workforce shortages:</strong> Workforce shortages affect urban and rural settings differently. In rural and remote areas, smaller practices dominate, economies of scale are harder to achieve, and the higher bulk billing rates constrain revenue. Covering leave is a persistent operational risk where a practice has one or two GPs. Urban areas face rising demand from complex, time-intensive consultations, particularly in residential aged care and among socio-economically disadvantaged populations. Multimorbidity is increasing across the GP caseload as the population ages, compressing consultation times and reducing throughput.</p>
 <p><strong>Growth in niche markets:</strong> Cosmetic procedures, skin cancer medicine, women's health and wellness-focused services have expanded as discrete revenue lines. These markets benefit from patient willingness to pay out of pocket, lower regulatory burden relative to core general practice, and growing consumer demand. They also illustrate that practices can diversify beyond Medicare fee-for-service where the clinical capability and catchment demographics support it.</p>
