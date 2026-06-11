@@ -521,7 +521,7 @@ table.std tbody td {
 }
 
 /* -- PRINT -- */
-@page { size: A4; margin: 15mm 18mm; }
+@page { size: A4; margin: 16mm 18mm; }
 
 @media print {
   * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
@@ -539,7 +539,13 @@ table.std tbody td {
   .imprint-page {
     page-break-after: always;
     min-height: unset;
+    padding: 0;
+    counter-reset: page 1;
   }
+  .imprint-subtitle { margin-bottom: 24px; }
+  .imprint-block { margin-bottom: 16px; }
+  .imprint-rule { margin: 16px 0; }
+  .imprint-page p { font-size: 8.5pt; line-height: 1.5; }
 
   /* Each major chapter divider starts a new page */
   .chapter-break {
@@ -560,7 +566,6 @@ table.std tbody td {
   .stat-grid { page-break-inside: avoid; }
   .inline-stat { page-break-inside: avoid; }
   .cta-section { page-break-inside: avoid; }
-  .producers { page-break-inside: avoid; }
 
   /* Tables: break between rows but not within rows */
   table.std { page-break-inside: auto; width: 100%; }
@@ -622,7 +627,7 @@ a { color: var(--red); }
 .section-divider {
   background: #ffffff;
   color: var(--ink);
-  padding: 40px 60px 24px 130px;
+  padding: 40px 30px 24px 30px;
   page-break-before: always;
   page-break-after: avoid;
   max-width: 880px;
@@ -908,21 +913,21 @@ table.std tbody tr:nth-child(even) td { background: #F5F3F3; }
 /* --- SVG charts --- */
 .chart-wrap { margin: 8px 0 36px; max-width: 640px; }
 .chart-wrap svg { display: block; width: 100%; height: auto; font-family: 'Poppins', sans-serif; }
-.chart-wrap .axis text { fill: var(--mute); font-size: 9pt; }
-.chart-wrap .axis line { stroke: var(--rule); stroke-width: 1; }
-.chart-wrap .bar { fill: var(--red); }
-.chart-wrap .bar-alt { fill: var(--ink); }
-.chart-wrap .bar-label { fill: var(--ink); font-size: 9pt; font-weight: 600; font-variant-numeric: tabular-nums; }
-.chart-wrap .cat-label { fill: var(--ink); font-size: 9.5pt; font-weight: 500; }
-.chart-wrap .grid line { stroke: var(--rule); stroke-width: 1; stroke-dasharray: 2 3; }
-.chart-wrap .ref-line { stroke: var(--ink); stroke-width: 1; stroke-dasharray: 4 3; }
-.chart-wrap .ref-label { fill: var(--ink); font-size: 8.5pt; font-style: italic; }
-.chart-wrap .source { font-size: 8pt; color: var(--mute); font-style: italic; margin: 8px 0 0; }
-.chart-wrap .line-series { fill: none; stroke: var(--red); stroke-width: 2.5; }
-.chart-wrap .line-series-alt { fill: none; stroke: var(--ink); stroke-width: 2; stroke-dasharray: 4 3; }
-.chart-wrap .dot { fill: var(--red); }
-.chart-wrap .dot-alt { fill: var(--ink); }
-.chart-wrap .legend { font-size: 8.5pt; fill: var(--ink); }
+.chart-wrap .axis text { fill: #857F7D; font-size: 9pt; }
+.chart-wrap .axis line { stroke: #DCD6D2; stroke-width: 1; }
+.chart-wrap .bar { fill: #BD1D2C; }
+.chart-wrap .bar-alt { fill: #3C3836; }
+.chart-wrap .bar-label { fill: #3C3836; font-size: 9pt; font-weight: 600; font-variant-numeric: tabular-nums; }
+.chart-wrap .cat-label { fill: #3C3836; font-size: 9.5pt; font-weight: 500; }
+.chart-wrap .grid line { stroke: #DCD6D2; stroke-width: 1; stroke-dasharray: 2 3; }
+.chart-wrap .ref-line { stroke: #3C3836; stroke-width: 1; stroke-dasharray: 4 3; }
+.chart-wrap .ref-label { fill: #3C3836; font-size: 8.5pt; font-style: italic; }
+.chart-wrap .source { font-size: 8pt; color: #857F7D; font-style: italic; margin: 8px 0 0; }
+.chart-wrap .line-series { fill: none; stroke: #BD1D2C; stroke-width: 2.5; }
+.chart-wrap .line-series-alt { fill: none; stroke: #3C3836; stroke-width: 2; stroke-dasharray: 4 3; }
+.chart-wrap .dot { fill: #BD1D2C; }
+.chart-wrap .dot-alt { fill: #3C3836; }
+.chart-wrap .legend { font-size: 8.5pt; fill: #3C3836; }
 
 /* --- Table of contents --- */
 .toc-wrap { page-break-after: always; padding-top: 60px; }
@@ -981,7 +986,7 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
 .exhibit-label, .exhibit-title { margin-left: 0; }
 
 @media print {
-  .body-wrap { padding: 0 60px 0 130px; }
+  .body-wrap { padding: 0 30px; }
 }
 
 @media (max-width: 900px) {
@@ -1028,9 +1033,19 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
 
 @media print {
   .stat-row, .stat-callout, .stat-card, .in-brief, .sidebar, .chart-wrap, table.std { page-break-inside: avoid; }
-  .section-divider { page-break-before: always; }
-  h3, h4 { page-break-after: avoid; }
-  h3 + p, h4 + p { orphans: 3; widows: 3; page-break-before: avoid; }
+  .section-divider, .front-matter { page-break-before: always; break-before: always; }
+  h2, h3, h4, h5, .section-tag { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
+  h2 + p, h3 + p, h4 + p { orphans: 3; widows: 3; page-break-before: avoid; break-before: avoid; }
+  p + ul { page-break-before: avoid; break-before: avoid; }
+  ul { page-break-inside: avoid; break-inside: avoid; }
+  .producer-grid { display: block; }
+  .producer-grid::after { content: ""; display: table; clear: both; }
+  .producer { float: left; width: 48%; margin-bottom: 16px; page-break-inside: avoid; break-inside: avoid; }
+  .producer:nth-child(2n) { float: right; }
+  .producer:nth-child(2n+1) { clear: both; }
+  .producers { padding-top: 32px; padding-bottom: 16px; }
+  .producer-name { margin-bottom: 2px; }
+  .producer-creds { margin-bottom: 6px; }
 }
 
 /* --- Paged.js print rules (only applied when the page is loaded with ?print=1
@@ -1038,13 +1053,12 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
    with page numbers, running chapter header and named front-matter pages. --- */
 @page {
   size: A4;
-  margin: 22mm 20mm 22mm;
+  margin: 16mm 20mm 15mm;
   @bottom-center {
     content: counter(page);
     font-family: 'Poppins', sans-serif;
     font-size: 9pt;
     color: #6B6360;
-    padding-top: 8mm;
   }
   @top-right {
     content: string(chapter);
@@ -1053,15 +1067,18 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
     color: #6B6360;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding-bottom: 6mm;
   }
 }
 @page front {
-  margin: 22mm 20mm 22mm;
+  margin: 16mm 20mm 15mm;
   @top-right { content: none; }
 }
 @page cover {
   margin: 0;
+  @bottom-center { content: none; }
+  @top-right { content: none; }
+}
+@page :first {
   @bottom-center { content: none; }
   @top-right { content: none; }
 }
@@ -1071,7 +1088,7 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
 .section-divider-title { string-set: chapter content(); }
 /* TOC entries resolve to real page numbers when paged.js is active. */
 .toc-list li a::after {
-  content: target-counter(attr(href url), page);
+  content: target-counter(attr(href), page);
   margin-left: 12px;
   color: var(--mute);
   font-variant-numeric: tabular-nums;
@@ -1082,7 +1099,7 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
 <div class="doc-wrap">
 
 <div class="cover cover-image">
-  <img src="../assets/gp-landscape-report-cover.png" alt="The Australian general practice landscape: trends, challenges and opportunities">
+  <img src="https://mediusglobal.com.au/assets/gp-landscape-report-cover.png" alt="The Australian general practice landscape: trends, challenges and opportunities">
 </div>
 
 <div class="imprint-page">
