@@ -1036,25 +1036,30 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
 
 @media print {
   .stat-row, .stat-callout, .stat-card, .in-brief, .sidebar, .chart-wrap, table.std { page-break-inside: avoid; }
-  .section-divider, .front-matter { page-break-before: always; break-before: always; }
+  .section-divider, .front-matter, .break-before { page-break-before: always; break-before: always; }
   h2, h3, h4, h5, .section-tag { page-break-after: avoid; break-after: avoid; page-break-inside: avoid; break-inside: avoid; }
   h2 + p, h3 + p, h4 + p { orphans: 3; widows: 3; page-break-before: avoid; break-before: avoid; }
   p + ul { page-break-before: avoid; break-before: avoid; }
   ul { page-break-inside: avoid; break-inside: avoid; }
   .producer-grid { display: block; }
-  .producer-row { display: block; width: 100%; margin-bottom: 8px; page-break-inside: avoid; break-inside: avoid; }
+  .producer-row { display: block; width: 100%; margin-top: 8px; margin-bottom: 8px; page-break-inside: avoid; break-inside: avoid; }
   .producer-row::after { content: ""; display: table; clear: both; }
   .producer { float: left; width: 48%; margin-bottom: 0; }
   .producer:nth-child(2) { float: right; }
-  .producers { padding-top: 16px; padding-bottom: 16px; }
+  .producers { padding-top: 12px; padding-bottom: 12px; }
   .producer-name { font-size: 10.5pt; margin-bottom: 2px; }
   .producer-creds { font-size: 8pt; margin-bottom: 4px; }
-  .producer p { font-size: 8.5pt; line-height: 1.45; margin-bottom: 8px; }
+  .producer p { font-size: 8.5pt; line-height: 1.45; margin-bottom: 4px; }
   .producers .section-heading { font-size: 20pt; margin: 0 0 16px; }
-  .sector-snapshot-wrapper p { font-size: 11pt; line-height: 1.6; margin-bottom: 16px; }
-  .sector-snapshot-wrapper .stat-callout { margin: 16px 0; padding: 6px 0 6px 18px; gap: 16px; }
+  .producers > p { margin-bottom: 24px !important; }
+  h3#sector-snapshot { margin-top: 12px; padding-top: 0; border-top: none; }
+  .sector-snapshot-wrapper p { font-size: 11pt; line-height: 1.5; margin-bottom: 10px; }
+  .sector-snapshot-wrapper .stat-callout { margin: 10px 0; padding: 6px 0 6px 18px; gap: 16px; }
   .sector-snapshot-wrapper .stat-callout-num { font-size: 20pt; }
   .sector-snapshot-wrapper .stat-callout-desc { font-size: 9.5pt; line-height: 1.4; }
+  .key-trends-wrapper p { font-size: 10pt; line-height: 1.65; margin-bottom: 12px; }
+  .funding-wrapper p { font-size: 9.8pt; line-height: 1.65; margin-bottom: 8px; }
+  .funding-wrapper blockquote.pullquote { font-size: 10.5pt; line-height: 1.4; margin-top: 10px; margin-bottom: 10px; }
 }
 
 /* --- Paged.js print rules (only applied when the page is loaded with ?print=1
@@ -1274,13 +1279,14 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
 <p><strong>Practice ownership:</strong> Corporate and group operators now control approximately 23% of general practice sites nationally, across 234 identified operators managing 1,706 sites. Consolidation continues, driven by practice owners exiting at or near retirement, rising compliance burden and the capital requirements of modern practice infrastructure. Average practice size has grown as smaller practices merge or are acquired. See Section 13.2 'Who owns the practice is changing' in this report for more information.</p>
 <div class="stat-callout"><div class="stat-callout-num">~23%</div><div class="stat-callout-desc">of practice sites under corporate/group ownership</div></div>
 </div>
-<div style="break-before: page; page-break-before: always;"></div>
-<h3>Key trends and challenges</h3>
+<h3 class="break-before">Key trends and challenges</h3>
+<div class="key-trends-wrapper">
 <p><strong>Workforce shortages:</strong> Workforce shortages affect urban and rural settings differently. In rural and remote areas, smaller practices dominate, economies of scale are harder to achieve, and the higher bulk billing rates constrain revenue. Covering leave is a persistent operational risk where a practice has one or two GPs. Urban areas face rising demand from complex, time-intensive consultations, particularly in residential aged care and among socio-economically disadvantaged populations. Multimorbidity is increasing across the GP caseload as the population ages, compressing consultation times and reducing throughput.</p>
 <p><strong>Growth in niche markets:</strong> Cosmetic procedures, skin cancer medicine, women's health and wellness-focused services have expanded as discrete revenue lines. These markets benefit from patient willingness to pay out of pocket, lower regulatory burden relative to core general practice, and growing consumer demand. They also illustrate that practices can diversify beyond Medicare fee-for-service where the clinical capability and catchment demographics support it.</p>
 <p><strong>Defining and delivering quality care:</strong> Rising operational costs (rent, labour, compliance) create pressure to prioritise throughput over complexity. This can divert clinical time away from chronic disease management and mental health, where patient needs are most resource intensive. Wellness clinics operate with lower overheads and narrower scope, making them more financially sustainable, but they do not substitute for the GP's role in managing multimorbidity, medication review and coordinated care. Reducing non-clinical operational costs and redirecting resources toward high-acuity work remains the structural challenge.</p>
 <p><strong>Adapting to technological and regulatory change:</strong> Telehealth accounted for approximately 20% of Medicare-funded GP services in 2022-23. Broader digital health integration faces uneven access to infrastructure, outdated regulatory frameworks and the cost of implementation for practices already operating on constrained margins. Practice management system upgrades, clinical decision support tools and interoperability with My Health Record all require capital and training that many practices cannot fund from current revenue sources.</p>
 <p><strong>Managing the increasing complexity of care:</strong> An ageing population, rising multimorbidity and growing mental health demand are increasing the clinical complexity of general practice caseloads. General practices bridge gaps when acute care and specialist services reach capacity or are unavailable. Voluntary assisted dying (VAD) accounted for approximately 1.8% of all deaths nationally in 2024-25 (3,329 deaths across all jurisdictions), with the rate varying from under 1% in Victoria to over 1.5% in South Australia. Closure of palliative care facilities in some areas has shifted additional end-of-life workload onto GPs. Mental health and preventive care are areas of growing GP involvement, presenting both clinical demand and potential revenue diversification where funding models support it.</p>
+</div>
 <h3>Opportunities for stakeholders</h3>
 <p><strong>Telehealth and digital solutions:</strong> Telehealth infrastructure is established but underutilised beyond telephone consultations. Video consultation uptake remains low (under 5% of telehealth services). Scaling virtual care has the most immediate impact in areas with GP shortages, where it extends the reach of existing practitioners rather than replacing face-to-face care. The investment case is strongest for practices that can integrate telehealth with existing practice management systems and chronic disease monitoring.</p>
 <p><strong>Value-based care models:</strong> Integrated, multidisciplinary models are a structural response to rising multimorbidity. Patients with multiple chronic conditions require coordinated input from GPs, allied health, nursing and specialist services. Practices that co-locate or formally coordinate these services capture more of the care episode and reduce leakage to hospital outpatient departments. Funding remains the constraint: Medicare fee-for-service does not reward coordination time, and the Practice Incentives Program payments are too small to underwrite genuine team-based care.</p>
@@ -1288,13 +1294,15 @@ blockquote.pullquote { margin-left: -20px; max-width: 560px; }
 <p><strong>Corporate investment:</strong> Consolidation continues to concentrate ownership among fewer, larger operators. The acquisition case rests on economies of scale in procurement, compliance, workforce recruitment and back-office functions. For investors, the risks lie in GP retention post-acquisition and in the regulatory environment around contractor versus employee classification. Practices that are acquired for scale efficiencies can lose revenue if experienced GPs leave and are replaced by less established practitioners with smaller patient followings.</p>
 <p><strong>Workforce development:</strong> Training pipeline expansion, bonded rural placements and improved remuneration structures for regional and remote practice are the levers available. One in three GPs intending to stop practising within five years makes retention as important as recruitment. Retention interventions that reduce administrative burden, improve locum access for leave cover and support flexible working arrangements have more immediate impact than training pipeline measures, which can take up to 10-12 years to produce a practising GP.</p>
 <p><strong>Investment parameters:</strong> The areas with the clearest return on investment are practice management technology (operational efficiency), workforce retention programs (protecting revenue-generating capacity), chronic disease management capability (growing patient demand) and revenue diversification beyond Medicare (subscription models, employer contracts, medico-legal work). Each requires different capital profiles and operating capabilities.</p>
-<h3>Funding model and structural trajectory</h3>
+<h3 class="break-before">Funding model and structural trajectory</h3>
+<div class="funding-wrapper">
 <p>Medicare fee-for-service rewards consultation volume, not complexity. This misalignment is structural and has been for over a decade. Blended payment models (capitation combined with pay-for-performance, fee-for-service, and outcome payments) are under active policy discussion, but no legislation or funding commitment exists as of June 2026. If implemented, blended models may reduce revenue for high-throughput, short-consultation practices and increase it for practices managing chronic disease, mental health and multimorbidity over longer appointments.</p>
 <blockquote class="pullquote">Medicare fee-for-service rewards consultation volume, not complexity. This misalignment is structural and has been for over a decade.</blockquote>
 <p>The BBPIP has sharpened the bulk billing decision for practice owners but has not resolved the underlying funding gap. Practices that converted to full bulk billing to capture the 12.5% loading have potentially locked in lower per-consultation revenue in exchange for volume certainty. Practices that retain mixed billing forgo the loading but preserve fee flexibility. Neither model addresses the cost of delivering comprehensive primary care to an ageing population with a rising chronic disease burden.</p>
 <p>Three areas will determine the sector's trajectory over the next five years: workforce supply (whether the one in three planning to exit do leave, and whether training pipeline expansion can offset losses) funding model reform (whether blended payments move beyond discussion into implementation), and ownership structure (whether consolidation improves operational efficiency or transfers margin from GPs to corporate operators without improving access or clinical outcomes).</p>
 <blockquote class="pullquote">Three areas will determine the sector's trajectory over the next five years: workforce supply, funding model reform, and ownership structure.</blockquote>
 <p>Practices that have diversified revenue beyond Medicare, invested in allied health integration, and built operational systems that reduce the administrative burden on clinicians are better positioned, regardless of which policy direction prevails. Practices that remain dependent on higher-volume, shorter consultations funded entirely through MBS rebates face the greatest exposure to structural reform and fee indexation risks.</p>
+</div>
 </div></div>
 
 <div id="section-1" class="section-divider chapter-break">
